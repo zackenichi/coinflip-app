@@ -1,12 +1,15 @@
-import { Grid } from '@mui/material';
+import { Grid, Snackbar } from '@mui/material';
 import { FC, useState } from 'react';
 import Coin from './Coin';
 import Controls from './Controls';
+import { MESSAGE_TIMEOUT } from '../../constants/constants';
 
 const CoinFlip: FC = () => {
   const [side, setSide] = useState('heads');
+  const [showMsg, setShowMsg] = useState(false);
 
   const flipCoin = () => {
+    setShowMsg(true);
     // Generate a random number between 0 and 1
     const random = Math.random();
 
@@ -16,6 +19,11 @@ const CoinFlip: FC = () => {
     } else {
       setSide('tails');
     }
+
+    // Hide the message after 2 seconds
+    setTimeout(() => {
+      setShowMsg(false);
+    }, MESSAGE_TIMEOUT);
   };
 
   return (
@@ -26,6 +34,11 @@ const CoinFlip: FC = () => {
       <Grid item xs={12}>
         <Controls flipCoin={flipCoin} />
       </Grid>
+      <Snackbar
+        open={showMsg}
+        message="Flipping coin..."
+        autoHideDuration={MESSAGE_TIMEOUT}
+      />
     </Grid>
   );
 };
