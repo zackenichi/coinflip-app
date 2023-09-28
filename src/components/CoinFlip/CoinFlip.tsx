@@ -6,10 +6,10 @@ import { MESSAGE_TIMEOUT } from '../../constants/constants';
 
 const CoinFlip: FC = () => {
   const [side, setSide] = useState('heads');
-  const [showMsg, setShowMsg] = useState(false);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const flipCoin = () => {
-    setShowMsg(true);
+    setIsSpinning(true);
     // Generate a random number between 0 and 1
     const random = Math.random();
 
@@ -22,20 +22,20 @@ const CoinFlip: FC = () => {
 
     // Hide the message after 2 seconds
     setTimeout(() => {
-      setShowMsg(false);
+      setIsSpinning(false);
     }, MESSAGE_TIMEOUT);
   };
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Coin side={side} />
+      <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Coin side={side} isSpinning={isSpinning} />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} textAlign="center">
         <Controls flipCoin={flipCoin} />
       </Grid>
       <Snackbar
-        open={showMsg}
+        open={isSpinning}
         message="Flipping coin..."
         autoHideDuration={MESSAGE_TIMEOUT}
       />

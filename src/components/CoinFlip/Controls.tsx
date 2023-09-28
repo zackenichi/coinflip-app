@@ -1,4 +1,4 @@
-import { Typography, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { FC } from 'react';
 
 interface ControlsProps {
@@ -8,7 +8,6 @@ interface ControlsProps {
 const Controls: FC<ControlsProps> = ({ flipCoin }) => {
   return (
     <>
-      <Typography>Controls</Typography>
       <Button variant="contained" onClick={flipCoin}>
         Flip
       </Button>
