@@ -1,11 +1,15 @@
 import { Grid, Typography } from '@mui/material';
 import { FC } from 'react';
 
-const Coin: FC = () => {
+interface CoinProps {
+  side: string;
+}
+
+const Coin: FC<CoinProps> = ({ side }) => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Typography>Coin</Typography>
+        <Typography>{side}</Typography>
       </Grid>
     </Grid>
   );
