@@ -65,6 +65,3 @@ We welcome contributions from the community. If you would like to contribute to 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-In the "TODO" section, you can now focus on implementing the two tasks mentioned: changing the state management to React-Redux Toolkit and adding a mechanism to change the labels for Heads and Tails. Update the README as you make progress on these tasks, and make sure to update the checkbox with an "x" when each task is completed.
