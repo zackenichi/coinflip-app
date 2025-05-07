@@ -2,17 +2,18 @@ import { Grid, Typography } from '@mui/material';
 import { FC } from 'react';
 
 interface CoinProps {
-  side: string;
+  content: string[];
+  side: number;
   isSpinning?: boolean;
 }
 
-const Coin: FC<CoinProps> = ({ side, isSpinning }) => {
+const Coin: FC<CoinProps> = ({ content, side, isSpinning }) => {
   return (
     <Grid
       className={isSpinning ? 'spinning' : ''}
       container
       sx={{
-        background: side === 'heads' ? '#2a9d8f' : '#f4a261',
+        background: side === 0 ? '#2a9d8f' : '#f4a261',
         width: '200px',
         height: '200px',
         borderRadius: '50%',
@@ -23,7 +24,7 @@ const Coin: FC<CoinProps> = ({ side, isSpinning }) => {
     >
       <Grid item xs={12} sx={{ margin: 'auto', textAlign: 'center' }}>
         <Typography sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
-          {side}
+          {content[side]}
         </Typography>
       </Grid>
     </Grid>
