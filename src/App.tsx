@@ -13,7 +13,7 @@ const App: FC = () => {
         minHeight: '100vh', // Set min-height to 100vh for vertical centering
       }}
     >
-      <Container maxWidth="md" data-testid="app-container">
+      <Container maxWidth="sm" data-testid="app-container">
         <Box
           sx={{
             flexGrow: 1,
